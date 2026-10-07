@@ -1,0 +1,65 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 32px auto 0;
+}
+
+.pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.pageButton {
+    min-width: 36px;
+    height: 36px;
+    padding: 4px 10px;
+
+    color: var(--color-text);
+    font-size: 14px;
+    font-weight: 500;
+
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    transition:
+        color 0.2s ease,
+        background-color 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.pageButton:hover:not(.pageButtonActive) {
+    color: var(--color-accent);
+    background-color: var(--color-surface-hover);
+    border-color: var(--color-accent);
+    transform: translateY(-1px);
+}
+
+.pageButtonActive {
+    color: #ffffff;
+    font-weight: 600;
+
+    background-color: var(--color-accent);
+    border-color: var(--color-accent);
+
+    cursor: default;
+}
+
+.ellipsis {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 32px;
+    height: 36px;
+
+    color: var(--color-text-secondary);
+
+    user-select: none;
+}

@@ -1,0 +1,299 @@
+.container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 40px 32px 64px;
+}
+
+.movieInfo {
+    display: grid;
+    grid-template-columns: minmax(260px, 360px) 1fr;
+    gap: 48px;
+    align-items: start;
+}
+
+.poster {
+    overflow: hidden;
+    border-radius: 16px;
+    aspect-ratio: 2 / 3;
+
+    background-color: var(--color-surface);
+    box-shadow: 0 6px 20px var(--color-shadow);
+}
+
+.poster img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.details {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.titleRow {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.titleRow h1 {
+    margin: 0;
+
+    color: var(--color-text);
+    font-size: 40px;
+    line-height: 1.2;
+}
+
+.backButton {
+    flex-shrink: 0;
+    padding: 8px 18px;
+
+    color: var(--color-text);
+    font: inherit;
+    font-weight: 500;
+
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    transition:
+        color 0.2s ease,
+        background-color 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.backButton:hover {
+    color: var(--color-accent);
+
+    background-color: var(--color-surface-hover);
+    border-color: var(--color-accent);
+
+    transform: translateX(-2px);
+}
+
+.meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 24px;
+
+    color: var(--color-text-secondary);
+    font-size: 16px;
+}
+
+.overview {
+    max-width: 800px;
+
+    color: var(--color-text);
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+.genres {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.genres h2 {
+    margin: 0;
+
+    color: var(--color-text);
+    font-size: 22px;
+}
+
+.genreList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+}
+
+.genreList li {
+    padding: 7px 14px;
+
+    color: var(--color-text-secondary);
+    font-size: 14px;
+
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+}
+
+.castSection {
+    margin-top: 64px;
+}
+
+.castSection h2,
+.similarSection h2 {
+    margin: 0 0 24px;
+
+    color: var(--color-text);
+    font-size: 28px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.actorCard {
+    min-width: 0;
+    overflow: hidden;
+
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 14px;
+    box-shadow: 0 3px 12px var(--color-shadow);
+
+    transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.actorCard:hover {
+    transform: translateY(-3px);
+}
+
+.actorPhoto {
+    overflow: hidden;
+    width: 100%;
+    aspect-ratio: 2 / 3;
+}
+
+.actorPhoto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    transition: transform 0.3s ease;
+}
+
+.actorCard:hover .actorPhoto img {
+    transform: scale(1.03);
+}
+
+.actorInfo {
+    padding: 14px;
+}
+
+.actorName {
+    margin: 0;
+
+    color: var(--color-text);
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.character {
+    margin: 5px 0 0;
+
+    color: var(--color-text-secondary);
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.similarSection {
+    margin-top: 64px;
+}
+
+.poster:has(:global(.react-loading-skeleton)),
+.actorPhoto:has(:global(.react-loading-skeleton)) {
+    line-height: 0;
+}
+
+.poster>span,
+.actorPhoto>span {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.poster :global(.react-loading-skeleton),
+.actorPhoto :global(.react-loading-skeleton) {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+@media (max-width: 1000px) {
+    .movieInfo {
+        grid-template-columns: minmax(240px, 300px) 1fr;
+        gap: 32px;
+    }
+
+    .grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .titleRow h1 {
+        font-size: 34px;
+    }
+}
+
+@media (max-width: 700px) {
+    .container {
+        padding: 32px 20px 48px;
+    }
+
+    .movieInfo {
+        grid-template-columns: 1fr;
+    }
+
+    .poster {
+        width: min(100%, 320px);
+        margin: 0 auto;
+    }
+
+    .titleRow h1 {
+        font-size: 28px;
+    }
+
+    .overview {
+        font-size: 16px;
+    }
+
+    .castSection,
+    .similarSection {
+        margin-top: 48px;
+    }
+
+    .grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 24px 16px 40px;
+    }
+
+    .titleRow {
+        flex-direction: column-reverse;
+    }
+
+    .castSection h2,
+    .similarSection h2 {
+        font-size: 24px;
+    }
+}

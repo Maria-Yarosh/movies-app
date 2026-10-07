@@ -1,0 +1,135 @@
+.container {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+
+    min-height: 72px;
+    padding: 0 50px;
+
+    background-color: var(--color-header-bg);
+    border-bottom: 1px solid var(--color-border);
+    box-shadow: 0 2px 12px var(--color-shadow);
+
+    backdrop-filter: blur(10px);
+
+    transition:
+        background-color 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.logo {
+    display: block;
+    width: 52px;
+    height: 52px;
+}
+
+.list {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+.list a {
+    position: relative;
+
+    color: var(--color-text);
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none;
+
+    transition: color 0.2s ease;
+}
+
+.list a:hover {
+    color: var(--color-accent);
+}
+
+.list a::after {
+    content: '';
+
+    position: absolute;
+    right: 0;
+    bottom: -7px;
+    left: 0;
+
+    height: 2px;
+
+    background-color: var(--color-accent);
+    border-radius: 2px;
+
+    transform: scaleX(0);
+    transition: transform 0.2s ease;
+}
+
+.list a:hover::after,
+.list .activeLink::after {
+    transform: scaleX(1);
+}
+
+.list .activeLink {
+    color: var(--color-accent);
+    font-weight: 600;
+}
+
+.btnToggle {
+    min-width: 92px;
+    padding: 9px 14px;
+
+    color: var(--color-text);
+    font-size: 14px;
+    font-weight: 600;
+
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 20px;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.btnToggle:hover {
+    background-color: var(--color-surface-hover);
+    border-color: var(--color-accent);
+    transform: translateY(-1px);
+}
+
+.btnToggle:active {
+    transform: translateY(0);
+}
+
+@media (max-width: 900px) {
+    .container {
+        padding: 0 24px;
+        gap: 20px;
+    }
+
+    .list {
+        gap: 18px;
+    }
+
+    .list a {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 700px) {
+    .container {
+        flex-wrap: wrap;
+        padding: 10px 20px;
+    }
+
+    .list {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px 20px;
+    }
+}
